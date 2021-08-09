@@ -1,7 +1,9 @@
 # NodeJS기초
+***
 1. V8엔진
 >자바스크립트는 브라우저에서 동작하는 언어이나 V8엔진이 나오면서 nodejs가 나오면서 브라우저 밖에서 실행 가능.    
 >V8엔진은 자바스크립트를 해석해 주는 엔진.
+***
 2. 이벤트기반의 비동기 I/O 프레임워크
 + 이벤트
   + nodejs로 만든 application을 client가 사용한다고 가정했을 경우, client가 application으로 요청을 보내면 nodejs는 해당 요청을 event로 만들어 event queue에 쌓음.
@@ -13,6 +15,7 @@
   + Non-blocking Worker가 요청을 수행하는 동안 Evnet Loop는 다른 요청을 수행하고 있으며, Non-blocking Worker가 요청을 완료한 후 응답값을 Evnet queue에 담고, Evnet Loop가 해당 Evnet queue를 실행하여 응답값을 client에게 보내줌.
   + 이렇게 비동기로 처리함.
   + Evnet 기반으로 일을 처리하고, 무거운 요청을 Work Thread를 통하여 비동기로 처리하는 부분이 이벤트기반의 비동기I/O 프레임워크를 말함.
+***
 3. 모듈 시스템
 + 브라우저에서는 모듈시스템을 구현하기 위해서 윈도우 컨텍스트를 사용함.
   + 브라우저에서 전역객체는 window 이고 window를 이용하여 모듈시스템을 구현했었음.
@@ -28,4 +31,5 @@
     + 모듈을 직접 만들 수도 있음. sum이라는 function을 만들고 module 이라는 키워드를 사용하여 모듈을 만듦. 
   + 사진5
   + 사용자 모듈 실행 예시
+***
 4. 
