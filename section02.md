@@ -1,8 +1,8 @@
 # Hello World
 ***
 + Hello World 예제파일로 진행.
-  + 참고사진9
-  + 참고사진10
+  + ![참고사진9](https://user-images.githubusercontent.com/4956783/128733367-279e0c1c-b030-49a4-b5f7-1d2c179553c1.jpg)
+  + ![참고사진10](https://user-images.githubusercontent.com/4956783/128733380-6f478c14-e9a4-480c-a72c-0c0a5a9c7daa.jpg)
   + 코드를 작성하여 실행. Hello World를 출력.
     + http 모듈을 가지고 와서 http에 선언, hostname과 port 를 설정. 
     + http모듈의 method 중에 createServer라는 method를 실행함 createServer의 콜백함수는 클라이언트가 접속했을 때 동작함.
@@ -13,6 +13,6 @@
 ***
 + 라우팅 추가 
   + 라우팅은 요청 경로를 실행.
-  + 참고 사진 11
+  + ![참고사진11](https://user-images.githubusercontent.com/4956783/128733400-d0d7fe1d-7a13-4f61-b06c-c6012df9329e.jpg)
     + 요청 경로는 요청(req)의 url 에 포함되어있음. if문으로 해당 요청값에 따라 다른 응답값을 보내줄 수 있음. 
     + 요청에 따른 응답을 if문으로 처리하기 힘듦으로 express를 사용. 
