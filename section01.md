@@ -20,4 +20,4 @@
 + 브라우저는 RequireJS 같은 라이브러리의 도움을 받아 모듈을 구현함. 
 + nodejs는 CommonJS로 모듈을 관리함.
   + CommonJs는 파일 형태로 파일을 관리함. nodejs는 서버에서 돌아가기 때문에 파일을 읽을 수 있음. 파일 하나하나를 모듈로 만들어서 관리.
-![Alt text](C:\Users\jujdb\Desktop\nodejs공부\sector1\test3.jpg)
+![Alt text](C:/Users/jujdb/Desktop/nodejs공부/sector1/test3.jpg)
