@@ -27,18 +27,18 @@
   + ![참고사진3](https://user-images.githubusercontent.com/4956783/128732222-81935da6-4210-4302-988b-db833476509e.jpg)
     + node에는 http라는 기본 모듈이 있음. 기본 모듈을 불러오기 위해서는 require이라는 함수를 사용함. http라는 모듈을 가지고 와서 http 변수에 선언을 한 것임.
   + 사용자 정의 모듈
-  + 사진4
+  + ![참고사진4](https://user-images.githubusercontent.com/4956783/128732330-c8df3894-bff8-4a48-9045-584a79c475a2.jpg)
     + 모듈을 직접 만들 수도 있음. sum이라는 function을 만들고 module 이라는 키워드를 사용하여 모듈을 만듦. 
-  + 사진5
+  + ![참고사진5](https://user-images.githubusercontent.com/4956783/128732424-0cb1d91a-3713-445f-b653-24f3ebf807c7.jpg)
   + 사용자 모듈 실행 예시
 ***
 4. 비동기 세계( ReadFileSync() vs ReadFile() )
-  + 사진6
+  + ![참고사진6](https://user-images.githubusercontent.com/4956783/128732447-71ae6dca-09c0-416a-a062-11ecec5c125a.jpg)
     + 데이터 파일 생성
-  + 사진7
+  + ![참고사진7](https://user-images.githubusercontent.com/4956783/128732474-149aba82-3626-45a6-b588-c63367100c14.jpg)
     + ReadFileSync()는 동기로 동작
     + 콜백함수 없이 실행
-  + 참고사진 8
+  + ![참고사진8](https://user-images.githubusercontent.com/4956783/128732502-151fd1d1-2f2f-4f0e-b2bd-3e39810996cd.jpg)
     + ReadFile()는 비동기로 동작
     + 비동기로 작동할 경우 파일을 읽을동안 다른 일을 처리하고 파일을 다 읽은 후에 데이터를 찍어줌.
     + 비동기를 처리할 때는 콜백함수를 사용.  
