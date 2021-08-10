@@ -41,10 +41,16 @@ expressjs.com   //문서를 통해서 미리 공부해보는 것도 좋습니다
 >```
 
 ```javascript
+//express 모듈을 가지고 와서 express 객체를 만들어 app 에 할당
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
 
+//Routing을 설정한 부분 입니다.
+//get 메소드의 '/'경로로 들어왔을 경우 'Hello World'가 나오도록 코딩하였습니다. 
+app.get('/', function(req,res){
+  res.send('Hello World!);
+});
 
 //미들웨어 만들기 세번째 파라미터 next가 있어야 다음 작업을 진행
 function logger(req,res,next){
