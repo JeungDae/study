@@ -33,7 +33,7 @@ expressjs.com   //문서를 통해서 미리 공부해보는 것도 좋습니다
 
 ```javascript
 const express = require('express');
-const morgan = require('morgan);
+const morgan = require('morgan');
 const app = express();
 
 
