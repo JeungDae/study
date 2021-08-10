@@ -49,7 +49,7 @@ const app = express();
 //Routing을 설정한 부분 입니다.
 //get 메소드의 '/'경로로 들어왔을 경우 'Hello World'가 나오도록 코딩하였습니다. 
 app.get('/', function(req,res){
-  res.send('Hello World!);
+  res.send('Hello World!');
 });
 
 //미들웨어 만들기 세번째 파라미터 next가 있어야 다음 작업을 진행
