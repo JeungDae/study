@@ -16,6 +16,7 @@ expressjs.com   //문서를 통해서 미리 공부해보는 것도 좋은
 
 + 미들웨어   
 > 함수들의 연속입니다.   
+> 세번째 파라미터인 next 함수를 호출하는게 중요합니다.
 
 + 라우팅   
 
@@ -23,22 +24,29 @@ expressjs.com   //문서를 통해서 미리 공부해보는 것도 좋은
 
 + 응답객체   
 
-++ NPM을 활용하여 express 설치
++ NPM을 활용하여 express, morgan 설치
 >```
+>// www.npmjs.com
 >npm install express
+>npm install morgan   //다른사람이 만든 미들웨어 사용하기
 >```
 
 ```javascript
 const express = require('express');
 const app = express();
 
+//세번째 파라미터 next가 있어야 다음 작업을 진행
 function logger(req,res,next){
   console.log('i am loggar');
+  //next를 호출해야 다음 작업을 수행합니다. 반드시 호출을 해야합니다.
   next();
+}
+function logger2(req,res,next){
+  console.log('i am logegr2');
 }
 
 app.use(logger);
-
+app.use(logger2);
 app.listen(3000, function(){
   console.log('Server is running);
 });
