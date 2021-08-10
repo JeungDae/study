@@ -23,10 +23,10 @@ expressjs.com   //문서를 통해서 미리 공부해보는 것도 좋은
 
 + 응답객체   
 
->NPM을 활용하여 express 설치
->>```
->>npm install express
->>```
+++ NPM을 활용하여 express 설치
+>```
+>npm install express
+>```
 
 ```javascript
 const express = require('express');
