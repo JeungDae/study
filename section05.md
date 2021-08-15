@@ -27,7 +27,7 @@
 > 400 : 잘못된 요청(Bad Request)   
 > 401 : 권한 없음(Unauthorized)   
 > 404 : 찾을 수 없음(Not found)   
-> 409 : 충돌(Conflict)
+> 409 : 충돌(Conflict)   
 + 5xx : 서버 문제
 > 500 : 서버에러(Internal server error)
 
@@ -59,8 +59,8 @@ app.listen(3000, function(){
 ```
 >서버를 구동합니다.   
 >curl -X GET 127.0.0.1:3000/users -v 
->라는 명령어를 실행합니다.
-+결과값
+>라는 명령어를 실행합니다.   
++ 결과값
 >* Trying 127.0.0.1...   
 >* TCP_NODELAY set   
 >* Connected to 127.0.0.1 (127.0.0.1) port 3000 (#0)   
