@@ -97,3 +97,19 @@ app.listen(3000, function(){
 >commonmw   
 >error ouccered   
 >GET / 404 5.775 ms - 139
+
++ express를 이용하여 Hellow World 출력
+```javascript
+const express = require('express');
+const app = express();
+
+app.get('/',function(req,res){
+  res.sned('Hello World');
+});
+
+app.listen(3000, function(){
+  console.log('Server is running');
+});
+```
+>응답값
+>Hello World
