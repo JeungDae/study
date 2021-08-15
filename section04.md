@@ -24,8 +24,8 @@
 + Dependencies
 >해당 부분에 외부모듈이 설정되는데 모듈을 다운받을 때 --save 명령어를 추가하면 됩니다.   
 >npm install express --save   
->npm install morgan --save
->--save 옵션을 하여 json에 자동으로 추가합니다.
+>npm install morgan --save   
+>--save 옵션을 하여 json의 dependencies에 자동으로 추가합니다.
 ```json
 {
   "name": "node-api",
