@@ -17,6 +17,7 @@ expressjs.com   //문서를 통해서 미리 공부해보는 것도 좋습니다
 + 미들웨어   
 > 함수들의 연속입니다.   
 > 세번째 파라미터인 next 함수를 호출하는게 중요합니다.   
+> 미들웨어는 일반 미들웨어와 에러 미들웨어가 있습니다. 
 > 일반 미들웨어는 파라미터를 3개 받습니다.   
 > error 미들웨어는 파라미터를 4개 받습니다.
 
@@ -52,7 +53,8 @@ app.get('/', function(req,res){
   res.send('Hello World!');
 });
 
-//미들웨어 만들기 세번째 파라미터 next가 있어야 다음 작업을 진행
+//미들웨어는 인터페이스가 정의되어 있습니다. (request, response, next) 
+//미들웨어 만들기 세번째 파라미터 next가 있어야 다음 작업을 진행합니다.
 function logger(req,res,next){
   console.log('i am loggar');
   //next를 호출해야 다음 작업을 수행합니다. 반드시 호출을 해야합니다.
@@ -72,10 +74,12 @@ function commonmw(req,res,next){
 //에러 미들웨어 에러가 나기 전에 넘긴 error 객체가 err에 쌓입니다.
 function errormw(err,req,res,next){
   console.log(err.message);
-  //에러를 처리하면 next
+  //전달 받은 에러를 처리하거나 에러 처리를 못하면 다음 미들웨어에게 에러를 넘깁니다.
+  //next(err);   
   next();
 }
 
+//미들웨어를 추가할 때는 use 라는 함수를 사용합니다. 
 app.use(logger);
 app.use(logger2);
 app.use(morgan('dev'));
@@ -86,3 +90,10 @@ app.listen(3000, function(){
   console.log('Server is running);
 });
 ```
+>응답값
+>Server is running
+>i am logger
+>i am logger2
+>commonmw
+>error ouccered
+>GET / 404 5.775 ms - 139
