@@ -91,9 +91,9 @@ app.listen(3000, function(){
 });
 ```
 >응답값
->Server is running
->i am logger
->i am logger2
->commonmw
->error ouccered
+>Server is running   
+>i am logger   
+>i am logger2   
+>commonmw   
+>error ouccered   
 >GET / 404 5.775 ms - 139
