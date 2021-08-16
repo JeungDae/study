@@ -1,6 +1,6 @@
 # 테스트 주도개발(TDD)
 >mocha, should, superTest
-
+***
 + Mocha
 >모카(mocha)는 테스트 코드를 돌려주는 테스트 러너입니다.   
 >mochajs.org 라는 홈페이지가 있습니다.(mocha 관련 된 문서를 확인할 수 있습니다.)   
@@ -60,16 +60,30 @@ describe('utils.js모듈의 capitalize() 함수는 ', ()=>{
 })
 ```
 
-+ 실행결과
++ 실행결과 fail
 > node_modules\.bin\mocha utils.spec.js 해당 명령어로 테스트를 진행합니다.   
-> utils.js모듈의 capitalize() 함수는   
->    1) 문자열의 첫번째 문자를 대문자로 변환한다   
->   
->   
->  0 passing (14ms)   
->  1 failing   
->   
->  1) utils.js모듈의 capitalize() 함수는   
->       문자열의 첫번째 문자를 대문자로 변환한다:   
->     TypeError: utils.capitalize is not a function   
->      at Context.it (utils.spec.js:7:30)   
+>> utils.js모듈의 capitalize() 함수는   
+>>    1) 문자열의 첫번째 문자를 대문자로 변환한다   
+>>   
+>>   
+>>  0 passing (14ms)   
+>>  1 failing   
+>>   
+>>   1) utils.js모듈의 capitalize() 함수는   
+>>       문자열의 첫번째 문자를 대문자로 변환한다:   
+>>   
+>>      AssertionError [ERR_ASSERTION]: 'hello' == 'Hello'   
+>>      + expected - actual   
+>>   
+>>      -a   
+>>      +Hello   
+>>   
+>>      at Context.it (utils.spec.js:8:16)   
+
++ 실행결과 sucess
+> 정상적인 값이 나오도록 수정 후 실행을 하면 다음과 같이 나옵니다.   
+>>   utils.js모듈의 capitalize() 함수는   
+>>    √ 문자열의 첫번째 문자를 대문자로 변환한다   
+>>   
+>>   
+>>  1 passing (16ms)   
