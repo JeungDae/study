@@ -1,7 +1,7 @@
 # 테스트 주도개발(TDD)
 >mocha, should, superTest
 ***
-+ Mocha
+## Mocha
 >모카(mocha)는 테스트 코드를 돌려주는 테스트 러너입니다.   
 >mochajs.org 라는 홈페이지가 있습니다.(mocha 관련 된 문서를 확인할 수 있습니다.)   
 >테스트 수트 : 테스트 환경으로 모카에서는 describe()으로 구현합니다.   
@@ -55,7 +55,7 @@ const assert = require('assert');
 describe('utils.js모듈의 capitalize() 함수는 ', ()=>{
     it('문자열의 첫번째 문자를 대문자로 변환한다', ()=>{
         const result = utils.capitalize('hello');
-        assert.equal('a','Hello');
+        assert.equal(result,'Hello');
     })
 })
 ```
@@ -87,3 +87,36 @@ describe('utils.js모듈의 capitalize() 함수는 ', ()=>{
 >>   
 >>   
 >>  1 passing (16ms)   
+***
+## Should
+> 노드 공식 문서에서는 assert 를 테스트 코드에서는 사용하지 말고, 서드파티 라이브러리를 사용하라고 합니다.   
+> 서드파티 라이브러리인 슈드(should)는 검증(assertion)라이브러리입니다.   
+> 슈드를 사용하면 가독성 높은 테스트 코드를 만들 수 있습니다.(영어문장을 읽는 듯한 느낌)   
+> shouldjs.github.io 라는 문서가 있습니다.(참고)
+
++ Should 설치
+> npm i should --save-dev 명렁어로 설치할 수 있습니다.
+
++ Should를 이용항 코딩
+```javascript
+const utils = require('./utils');
+const should = require('should');
+
+describe('utils.js모듈의 capitalize() 함수는 ', ()=>{
+    it('문자열의 첫번째 문자를 대문자로 변환한다', ()=>{
+        const result = utils.capitialize('hello');
+        result.should.be.equal(result,'Hello');
+    })
+})
+```
++ 실행 결과
+>   utils.js모듈의 capitalize() 함수는   
+>    √ 문자열의 첫번째 문자를 대문자로 변환한다   
+
+***
+## 슈퍼테스트(superTest)
+> mocha 와 should를 적용한 테스트는 단위(함수의 기능 테스트) 입니다.   
+> superTest는 통합테스트(API의 기능 테스트) 입니다.   
+> 슈퍼테스트는 익스프레스 통합 테스트용 라이브러리입니다.   
+> 내부적으로 익스프레스 서버를 구동시켜 실제 요청을 보낸 뒤 결과를 검증합니다.
+
