@@ -164,13 +164,13 @@ describe('CET /users', ()=>{
 })
 
 ```
-> node_modules\.bin\mocha index.spec.js
 + 실행 결과
->  GET /users   
->[ { id: 1, name: 'alice' },   
->  { id: 2, name: 'back' },   
->  { id: 3, name: 'chris' } ]   
->    √ ...   
->   
->   
->  1 passing (47ms)   
+> node_modules\.bin\mocha index.spec.js 해당 명렁어로 실행합니다.
+>>  GET /users   
+>>[ { id: 1, name: 'alice' },   
+>>  { id: 2, name: 'back' },   
+>>  { id: 3, name: 'chris' } ]   
+>>    √ ...   
+>>   
+>>   
+>>  1 passing (47ms)   
