@@ -164,7 +164,7 @@ describe('CET /users', ()=>{
 })
 
 ```
-
+> node_modules\.bin\mocha index.spec.js
 + 실행 결과
 >  GET /users   
 >[ { id: 1, name: 'alice' },   
