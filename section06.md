@@ -37,7 +37,7 @@
 
 
 + 모카테스트 진행하기
-+ utils.js
++   + utils.js
 ```javascript
 function capitialize(str){
     return str;
@@ -47,7 +47,7 @@ module.exports = {
     capitialize: capitialize
 }
 ```
-+ utils.spec.js
++   + utils.spec.js
 ```javascript
 const utils = require('./utils');
 const assert = require('assert');
