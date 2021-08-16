@@ -37,7 +37,7 @@
 
 
 + 모카테스트 진행하기
-   + utils.js
++ utils.js
 ```javascript
 function capitialize(str){
     return str;
@@ -47,7 +47,7 @@ module.exports = {
     capitialize: capitialize
 }
 ```
-   + utils.spec.js
++ utils.spec.js
 ```javascript
 const utils = require('./utils');
 const assert = require('assert');
@@ -120,3 +120,57 @@ describe('utils.js모듈의 capitalize() 함수는 ', ()=>{
 > 슈퍼테스트는 익스프레스 통합 테스트용 라이브러리입니다.   
 > 내부적으로 익스프레스 서버를 구동시켜 실제 요청을 보낸 뒤 결과를 검증합니다.
 > https://github.com/visionmedia/supertest 페이지의 Example에서 예제를 살펴볼 수 있습니다.
+
++ supertest 설치
+>npm i supertest --save-dev
+
++ 테스트 진행
++ index.js
+```javascript
+var express = require('express');
+var app = express();
+
+var users = [
+    {id: 1, name : 'alice'},
+    {id: 2, name : 'back'},
+    {id: 3, name : 'chris'},
+];
+
+app.get('/users', function (req,res){
+    res.json(users);
+});
+
+//마지막에 module키워드를 추가합니다.
+module.exports=app;
+```
+
++ index.spec.js
+```javascript
+const app = require('./index');
+const request = require('supertest');
+
+//supertest가 잘 돌아가는지 테스트만 진행합니다.
+describe('CET /users', ()=>{
+    //api는 비동기로 되어있기 때문에 함수의 파라미터에 done을 추가합니다.
+    it('...',(done)=>{
+        request(app)
+            .get('/users')
+            .end((err,res)=>{
+                //response의 body에 접근하면 users의 값에 접근할 수 있습니다.
+                console.log(res.body);
+                done();
+            })
+    })
+})
+
+```
+
++ 실행 결과
+>  GET /users   
+>[ { id: 1, name: 'alice' },   
+>  { id: 2, name: 'back' },   
+>  { id: 3, name: 'chris' } ]   
+>    √ ...   
+>   
+>   
+>  1 passing (47ms)   
