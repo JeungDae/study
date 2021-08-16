@@ -119,4 +119,4 @@ describe('utils.js모듈의 capitalize() 함수는 ', ()=>{
 > superTest는 통합테스트(API의 기능 테스트) 입니다.   
 > 슈퍼테스트는 익스프레스 통합 테스트용 라이브러리입니다.   
 > 내부적으로 익스프레스 서버를 구동시켜 실제 요청을 보낸 뒤 결과를 검증합니다.
-
+> https://github.com/visionmedia/supertest 페이지의 Example에서 예제를 살펴볼 수 있습니다.
