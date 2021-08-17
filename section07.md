@@ -26,6 +26,9 @@
 ```
 > npm test
 
++ body-parser 추가
+> npm i body-parser --save
+
 + API 테스트 만들기.
 
 + index.js
