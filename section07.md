@@ -46,33 +46,44 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.get('/users', function (req,res){
     req.query.limit = req.query.limit || 10;
-    const limit = parseInt(req.query.limit, 10);
+    const limit = parseInt(req.query.limit, 10);    //문자열이 들어왔을경우 그대로 들어갑니다.
+    //숫자인지 아닌지 체크합니다.
     if(Number.isNaN(limit)){
         return res.status(400).end();
     }
-    res.json(users.slice(0, limit));
+    res.json(users.slice(0, limit));    // limit 값만큼만 반환합니다.
 });
 
 app.get('/users/:id', function(req,res) {
     const id = parseInt(req.params.id,10);
+    //숫자인지 아닌지 체크합니다.
     if(Number.isNaN(id)) return res.status(400).end();
-    const user = users.filter((user)=>    user.id === id)[0];
+    const user = users.filter((user)=>    user.id === id)[0];   //해당 숫자의 값을 반환합니다.
+    //해당 숫자의 유저가 있는지 없는지 체크합니다.
     if(!user) return res.status(404).end();
     res.json(user);
 });
-
+//콜백함수를 arrow function을 사용해도 무방합니다.
 app.delete('/users/:id', (req,res)=>{
     const id = parseInt(req.params.id, 10);
+    //숫자인지 아닌지 체크합니다.
     if(Number.isNaN(id)) return res.status(400).end();
+
+    // id를 제외하고 users를 만들어줍니다.
     users = users.filter(user=>user.id !== id);
+    
     res.status(204).end();
 })
 
 app.post('/users', (req,res)=>{
     const name = req.body.name;
+    // 이름이 있는지 없는지 체크합니다.
     if(!name) return res.status(400).end();
+
     const isConflict = users.filter(user=>user.name === name).length
+    //중복이 있는지 체크합니다.
     if(isConflict) return res.status(409).end();
+    
     const id = Date.now();
     const user ={id, name};
     users.push(user);
@@ -81,15 +92,19 @@ app.post('/users', (req,res)=>{
 
 app.put('/users/:id',(req,res)=>{
     const id = parseInt(req.params.id, 10);
+    //숫자인지 체크합니다.
     if(Number.isNaN(id)) return res.status(400).end();
     
     const name = req.body.name;
+    // 이름이 있는지 체크합니다.
     if(!name) return res.status(400).end();
 
     const isConflict = users.filter(user=>user.name === name).length;
+    // 중복인지 체크합니다.
     if(isConflict) return res.status(409).end();
 
     const user = users.filter(user=>user.id === id)[0];
+    //없는 유저인지 확인합니다.
     if(!user) return res.status(404).end();
     
     user.name = name;
