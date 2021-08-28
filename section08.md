@@ -11,7 +11,7 @@ api
 > > user.ctrl.js   
 > > user.spec.js
    
-+ user/index.js
++ api/user/index.js
 ```javascript
 // 라우팅 설정
 const express = require('express');
@@ -27,9 +27,9 @@ router.put('/:id', ctrl.update);
 module.exports = router;
 ```
 
-+ user/user.ctrl.js
++ api/user/user.ctrl.js
 ```javascript
-// api 로직
+// 설정한 라우팅이 실제로 작동하는 부분
 var users = [
     {id: 1, name : 'alice'},
     {id: 2, name : 'back'},
@@ -107,7 +107,7 @@ module.exports = {
 }
 ```
 
-+ user/user.spec.js
++ api/user/user.spec.js
 ```javascript
 //테스트
 const request = require('supertest');
@@ -274,7 +274,7 @@ describe('PUT /users/:id', ()=>{
 })
 ```
 
-+ bin/www.js
++ api/bin/www.js
 ```javascript
 const app = require('../../index');
 
@@ -282,3 +282,5 @@ app.listen(3000,()=>{
     console.log('Server is running on 3000 port')
 });
 ```
+
+기존 index.js 를 분할함.
