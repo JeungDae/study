@@ -3,8 +3,9 @@
 ***
 - 파일구조
 > api   
-> > bin
-> > user
-> > > index.js
-> > > user.ctrl.js
-> > > user.spec.js
+> > bin   
+> > >www.js   
+> > user   
+> > > index.js   
+> > > user.ctrl.js   
+> > > user.spec.js   
