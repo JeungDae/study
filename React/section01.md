@@ -19,6 +19,9 @@ npm i antd styled-components @ant-design/icons
 > noopener : target="_blank"로 새로운 창을 열때 noopener 속성을 사용하지 않으면, 이전 객체가 같이 넘어가 이전 페이지에 대한 권한을 가지고 있을 수 있음.   
 > noreferrer : 링크를 클릭했을 때 참조자 정보를 숨김. noreferrer를 사용하지 않으면 새로열린 창에서 객체를 조작할 수 있음.   
 
++ hooks
+> 반복되는 부분은 커스텀훅으로 처리함.   
+
 ## SourceCode
 + _app.js
 ```javascript
@@ -60,6 +63,20 @@ const Home = () =>{
 }
 
 export default Home;
+```
++ useInput.js
+```javascript
+import { useState, useCallback } from 'react';
+
+
+export default (initialValue = null)=> {
+    const [value, setValue] = useState(initialValue);
+    const handler = useCallback((e)=>{
+        setValue(e.target.value);
+    },[]);
+
+    return [value, handler];
+}
 ```
 + AppLayout.js
 ```javascript
@@ -144,29 +161,99 @@ export default Profile;
 ```
 + signup.js
 ```javascript
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import Head from 'next/head';
+import { Form, Input, Checkbox, Button } from 'antd';
+import styled from 'styled-components';
+
 import AppLayout from '../components/AppLayout';
+import useInput from '../hooks/useInput';
+
+const ErrorMessage = styled.div`
+    color: red;
+`;
 
 const Signup = () => {
+    const [id, onChangeId] = useInput('');
+    const [nickname, onChangeNickname] = useInput('');
+    const [password, onChangePassword] = useInput('');
+    const [passwordCheck, setPasswordCheck] = useState('');
+
+    const [passwordError, setPasswordError] = useState(false);
+    const onChangePasswordCheck = useCallback((e)=>{
+        setPasswordCheck(e.target.value);
+        setPasswordError(e.target.value !== password);
+    }, [password]);
+
+    const [term, setTerm] = useState('');
+    const [termError, setTermError] = useState(false);
+    const onChangeTerm = useCallback((e) => {
+        setTerm(e.target.checked);
+        setTermError(false);
+    }, []);
+
+    const onSubmit = useCallback(()=>{
+        if (password !== passwordCheck){
+            return setPasswordCheck(true);
+        }
+        if (!term){
+            return setTermError(true);
+        }
+        console.log(id, nickname, password);
+    }, [password,passwordCheck,term]);
     return (
-        <>
+        <AppLayout>
             <Head>
                 <title>회원가입 | NodeBird</title>
             </Head>
-            <AppLayout>회원가입 페이지</AppLayout>
-        </>
+            <Form onFinish={onSubmit}>
+                <div>
+                    <label htmlFor="user-id">아이디</label>
+                    <br />
+                    <Input name="user-id" value={id} required onChange={onChangeId} />
+                </div>
+                <div>
+                    <label htmlFor="user-nickname">닉네임</label>
+                    <br />
+                    <Input name="user-nickname" value={nickname} required onChange={onChangeNickname} />
+                </div>
+                <div>
+                    <label htmlFor="user-password">비밀번호</label>
+                    <br />
+                    <Input name="user-password" type="password" value={password} required onChange={onChangePassword} />
+                </div>
+                <div>
+                    <label htmlFor="user-password-check">비밀번호체크</label>
+                    <br />
+                    <Input name="user-password-check"
+                    type="password"
+                    value={passwordCheck} 
+                    required 
+                    onChange={onChangePasswordCheck} />
+                    {passwordError && <ErrorMessage> 비밀번호가 일치하지 않습니다.</ErrorMessage>}
+                </div>
+                <div>
+                    <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>형준님 말을 잘 들을 것을 동의합니다.</Checkbox>
+                    {termError && <ErrorMessage>약관에 동의합니다.</ErrorMessage>}
+                </div>
+                <div style={{marginTop:10}}>
+                    <Button type="primary" htmlType="submit">가입하기</Button>
+                </div>
+            </Form>
+        </AppLayout>
     );
 };
 
 export default Signup;
 ```
+
 + Loginform.js
-```javascript
-import React, { useState, useCallback, useMemo } from 'react';
+```javascriptimport React, { useState, useCallback, useMemo } from 'react';
 import { Form, Input, Button } from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import useInput from '../hooks/useInput';
 
 const ButtonWrapper = styled.div`
     margin-top : 10px;
@@ -177,16 +264,8 @@ const FormWrapper = styled(Form)`
 `;
 
 const LoginForm = ({ setIsLoggedIn }) =>{
-    const [id,setId] = useState('');
-    const [password, setPassword] = useState('');
-
-    const onChangeId = useCallback((e)=>{
-        setId(e.target.value);
-    }, []);
-
-    const onChangePasswrod = useCallback((e)=>{
-        setPassword(e.target.value);
-    }, []);
+    const [id, onChangeId] = useInput('');
+    const [password, onChangePassword] = useInput('');
     
     const style = useMemo(()=> ({marginTop:10}), []);
 
@@ -194,8 +273,6 @@ const LoginForm = ({ setIsLoggedIn }) =>{
         console.log(id, password);
         setIsLoggedIn(true);
     }, [id, password]);
-
-    
     
     return (
         <FormWrapper onFinish={onSubmitForm}>
@@ -213,7 +290,7 @@ const LoginForm = ({ setIsLoggedIn }) =>{
                 <br/>
                 <Input name="user-password" 
                     value={password} 
-                    onChange ={onChangePasswrod} 
+                    onChange ={onChangePassword} 
                     required
                 />
             </div>
@@ -228,6 +305,9 @@ const LoginForm = ({ setIsLoggedIn }) =>{
     );
 };
 
+LoginForm.proTypes = {
+    setIsLoggedIn : PropTypes.func.isRequired,
+}
 export default LoginForm;
 ```
 + UserProfile.js
