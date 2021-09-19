@@ -50,7 +50,6 @@ fun main(){
     var count = lottoNums.size
     lottoNums.forEach {
         var lottoNum = it.split(" ").toList()
-        // set을 list로 바꿔준다
         numbers = mutableListOf<Int>()
         checkPrint = Array<Boolean>(50){false}
 
