@@ -19,6 +19,7 @@
 ## 예제1
 - 피보나치 수열
 ```java
+// JAVA
 // 첫째 및 둘째 항이 1이며, 그 뒤의 모든 항은 바로 앞 두항의 합인 수열
 public class Dynamic{
   public int funcDynamic(int number){
