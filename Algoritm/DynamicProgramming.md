@@ -16,9 +16,8 @@
 > 동일한 계산의 반복 수행을 제거하여 프로그램 실행 속도를 빠르게 하는 기술.
 
 
-## 예제1
+## 예제1 (java)
 - 피보나치 수열
-```java
 // JAVA
 // 첫째 및 둘째 항이 1이며, 그 뒤의 모든 항은 바로 앞 두항의 합인 수열
 public class Dynamic{
@@ -32,5 +31,47 @@ public class Dynamic{
     
     retunr value[number];
   }
+}
+```
+
+## 예제2 (kotlin)
+```kotlin
+/**
+ * 정수 4를 1, 2, 3의 합으로 나타내는 방법은 총 7가지가 있다. 합을 나타낼 때는 수를 1개 이상 사용해야 한다.
+ * 1+1+1+1
+ * 1+1+2
+ * 1+2+1
+ * 2+1+1
+ * 2+2
+ * 1+3
+ * 3+1
+ * 정수 n이 주어졌을 때, n을 1, 2, 3의 합으로 나타내는 방법의 수를 구하는 프로그램을 작성하시오.
+ *
+ *
+ * 첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고, 정수 n이 주어진다. n은 양수이며 11보다 작다.
+ *
+ * 각 테스트 케이스마다, n을 1, 2, 3의 합으로 나타내는 방법의 수를 출력한다.
+ */
+fun main(){
+    var testCase = readLine()!!.toInt()
+    var case = mutableListOf<Int>()
+
+    var solutionCase = Array<Int>(11){0}    //n 은 11보다 작음
+
+    repeat(testCase){
+        var cases = readLine()!!.toInt()
+        case.add(cases)
+    }
+
+    solutionCase[1]=1       // 1 은 1로만 나타낼 수 있음
+    solutionCase[2]=2       // 2 는 1+1 , 2
+    solutionCase[3]=4       // 3은 1+1+1, 1+2, 2+1, 3
+
+    for(i in 4 .. 10){
+        solutionCase[i] = solutionCase[i-1]+solutionCase[i-2]+solutionCase[i-3]
+    }
+    case.forEach {
+        println(solutionCase[it])
+    }
 }
 ```
