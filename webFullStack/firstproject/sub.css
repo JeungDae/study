@@ -1,0 +1,112 @@
+/* 
+    background
+*/
+body{
+    background-color: slategrey;
+}
+/*
+    header
+*/
+.head {
+    display: inline-block;
+    height:80px;
+    width: 100%;
+    background-color: white;
+    vertical-align: middle;
+}
+.nav {
+    float:right;
+    text-align: center;
+    vertical-align: middle;
+}
+.nav li {
+    display: inline-block;
+    list-style-type:none;
+    margin-right: 13px;
+    vertical-align: middle;
+}
+.nav li button {
+    width:120px;
+    height:30px;
+    border : solid 1px #4D4D4D;
+    cursor:pointer;
+    box-shadow: 1px 1px 1px #333333;
+    background-color: #A4A4A4;
+    vertical-align: middle;
+}
+
+/*
+    footer
+*/
+footer {
+    margin-top: 10px;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+}
+footer div{
+    top:50%
+}
+
+/*
+    공통 div
+*/
+.common {
+    background-color: white;
+    margin-top: 10px;
+    padding : 30px 10px;
+}
+
+/*
+    index.html 
+*/
+
+.button {
+    display: inline-block;
+    vertical-align: middle;
+    width:100px;
+    height:100px;
+    border : solid 1px #4D4D4D;
+    cursor:pointer;
+    box-shadow: 1px 1px 1px #333333;
+}
+.indeximg {
+    width:50%;
+    height: 50%;
+    margin-top: 20px;
+}
+.index {
+    text-align: center;
+}
+
+/*
+    aboutme.html
+*/
+.aboutme {
+    display: block;
+    padding:0px 150px;
+}
+.aboutme h1 {
+    line-height: 0%;
+}
+/*
+    photo.html
+*/
+.board {
+    margin : 50px
+}
+
+.boardimg {
+    display: inline-block;
+    margin-right: 30px;
+}
+.boardimg img{
+    width: 200px;
+    height: 200px;
+    border : 10px solid gray;
+}
+.boardwrite {
+    width :60%;
+    vertical-align: top;
+    display: inline-block;
+}
