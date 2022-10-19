@@ -1,0 +1,23 @@
+- 반올림 ROUND 
+EX)
+  - SELECT ROUND(11334.524);      //11335
+  - SELECT ROUND(11334.524, 1);   //11334.5
+
+- 날짜 일수 체크 DATEDIFF
+EX)
+  - SELECT DATEDIFF('2022-10-11', '2022-09-12');  //29
+  
+- 마지막 날짜 구하기 LAST_DAY
+EX)
+  - SELECT LAST_DAY(NOW());       // 2022-10-31
+
+- 버림 TRUNCATE
+EX)
+  - SELECT TRUNCATE(144343.567, 0);   // 144343
+  - SELECT TRUNCATE(144343.567, 1);   // 144343.5
+  - SELECT TRUNCATE(144343.567, -1);  // 144340
+
+- IF문 IF(조건문, 참일경우, 거짓일경우)
+EX)
+  - SELECT IF(1>0, 'Y', 'N');   // Y
+  - SELECT IF(1<0, 'Y', 'N');   // N
