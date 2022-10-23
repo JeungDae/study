@@ -37,3 +37,5 @@ ReactNative 구동을 위한 환경설정(android)
   export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
   export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
   export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+  
+4. android studio 설치
