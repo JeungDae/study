@@ -14,3 +14,6 @@
 
 * docker restart [name]
   * 컨테이너 재실행 명령어
+
+* docker exec -it [name] bash
+  * 컨테이너 접속 
